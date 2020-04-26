@@ -1,0 +1,34 @@
+<script>
+    let obj1={
+        name: 'name',
+        sex:'sex',
+        a:{
+            b:{
+                c:1
+            }
+        }
+    }
+
+    //1.只有一层 不用...
+    //对象的一个循环  ？？
+
+    function deepClone(obj){
+        let res={};
+        for(let key in obj) {
+            if(typeof obj[key]==='object'){
+                res[key] = deepClone(obj[key]);
+            }
+            else{
+                res[key]= obj[key]
+            }
+        }
+        return res;
+    }
+    let obj2=deepClone(obj1);
+    delete obj1.name
+    console.log(obj1,obj2)
+</script>
+
+<script>
+    let arr=[1,[2,[3,[4]]]]
+</script>
