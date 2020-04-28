@@ -3,44 +3,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=47FQtS6XkphGqmZ5nSEj6WTSTwE8SGaT"></script>
-  <style>
-  /* 元素有些默认属性， 我们将他重置掉 css reset 工作流程 */
-  * {
-    margin: 0;
-    padding: 0;
-  }
-  #map {
-    /* 占据怎个屏幕 ? */
-    width: 80vw;  
-    /* 来自移动时代的新的单位 px vierport width  
-    根据视窗出相对单位iphoneXR inphone X ipad  */
-    height: 100vh;
-    background-color: pink;
-  }
-
-  </style>
+  <title>append child DOM API </title>
 </head>
 <body>
-  <!-- 1. 展示一个地图 来自百度  -->
-  <!-- emmet html 快捷方式 -->
-  <!-- <div id="map"></div> -->
-  <!-- 容器 地图 在这里显示 -->
-  <div id="map"></div>
+  <ul id="students">
+  </ul>
   <script>
-  // js 的编程 html, css , js 都加载完成了
-  // baidu sdk 下载完成
-  window.onload = function() {
-    // 405 错误 来着于用户的错误
-    // 500 服务器端错误
-    // 404 Not Found 
+  const students = [{
+    id: 1,
+    name: '刘策',
+    github: 'https://github.com/2941187216/lesson-bm'
+  }, {
+    id: 2,
+    name: '黄毅超',
+    github: 'https://github.com/huangyichao0916/lesson_bm'
+  }, {
+    id: 3,
+    name: '刘巧纯',
+    github: 'https://github.com/qiaochunliu77/lesson_bm'
+  }]
+  // students  append #root
+  // arr -> map  ->  html arr -> join   -> url
+  // DOM 动态编程
+  // innerHTML  /   appendChild
+  // html标签还可以用js 来创建
+  // js  跟 html 联系起来 
+  const oUL = document.getElementById('students');
 
-    // console.log('ready')
-    var map = new BMap.Map('map'); // 实例化地图
-    map.centerAndZoom("东华理工大学南昌校区", 17) // 中心设置 zoom 
+  // oUL.addEventListener()
 
+  oUL.style.fontSize = '20px';
+  // li 没选中  内存中是节点对象了， append html
+  // js 节点对象 -》 html 对象的转化
+  //
+  // console.log(oLi.nodeType);
+  
+  
+  // ? 
+  
+  // console.log(oText.nodeType);
+  // li  加一个 a   href 
+  const fragment = document.createDocumentFragment(); // 垫片 文档碎片
+  // 节点树
+  for (let student of students) {
+    const oLi = document.createElement('li');
+    oLi.className = 'item';
+    const oA = document.createElement('a');
+    oA.setAttribute('href', student.github);
+    oA.setAttribute('target', "_blank");
+    const oText = document.createTextNode(student.name);
+    oA.appendChild(oText);
+    // oA.addEventListener('click',function(event){
+    //   event.preventDefault()
+    //   alert(this.innerText);
+    // })
+    oLi.appendChild(oA);
+    fragment.appendChild(oLi); // 内存中，
+    // oUL.appendChild(oLi);// 性能问题  页面的3次重新绘制 和刷新
+    //js DOM 性能消耗较大    
   }
+
+  oUL.appendChild(fragment); // 
+  
+  const studentLis= document.querySelectorAll('.item');
+  // studentLis  伪数组  forEach  length 下标访问  仅此而已
+  // console.log(studentLis)
+  // 伪数组如何变成数组
+  studentLis.forEach((li,index) => {
+      // console.log(li)
+      let oA = li.querySelector('a')
+      console.log(oA);
+      const  oSpan =document.createElement('span');
+      oSpan.appendChild(document.createTextNode(students[index].id))
+      li.insertBefore(oSpan,oA);
+  })
+  // studentLis.filter(li=> li.childNodes[0].innnerText)
+    // console.log(studentLis[0].childNodes[0].innerText)
+    // console.log(studentLis.filter(
+    //   li => { return li.childNodes[0].innerText == '刘策';
+    //   })
   </script>
 </body>
 </html>
