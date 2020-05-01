@@ -1,0 +1,53 @@
+<ul>
+    <li>1111</li>
+    <li></li>
+    <li></li>
+</ul>
+<script>
+//类似数组的对象 
+//1:可以向数组一样  用数组[i]取值
+//2:length
+//不全是数组
+//比如 arguments   ,  NodeList(querySelectorAll)
+const lis=document.querySelectorAll('li')
+//本意是   lis.map(function(){})
+Array.prototype.map.call(lis,function(LiNode){
+    console.log(LiNode)
+})
+// function foo(){
+//     console.log(arguments)
+// }
+// foo(1,1,1,1)
+// let arr=[1,2,2,2,2]
+// // console.log(arr);
+function sum()
+{
+    let sum=0;
+    //只有数组才有foreach
+    //1:借用一下，知道他在哪 考虑this*************************
+    //arguments.forEach forEach  ： js实现在哪里
+    Array.prototype.forEach.call(arguments,function(num){
+        console.log(num)
+    })
+    //2  Array.from()方法从一个类似数组对象创建一个新的数组*******************************
+    const arr =Array.from(arguments);
+    arr.forEach(function(num){
+    console.log(num)
+
+    })
+    //arguments.forEach本意：foreach 内部的this 指向arguments
+    // arguments.forEach(
+    //     num=>{
+    //         sum+=num;
+    //     });
+    // console.log(sum);
+}
+sum(0,1,2,2,2,2,2,2,2)
+// foo(1,23,4,4,2,12,12)
+// console.log(Math.max(1,2,2,2,2,22,1))
+//rest  必须在最后的位置  *********************
+function sum1(q,...rest){
+    console.log(rest);
+}
+sum1(2,2,2,2,2,2,2,88)
+</script>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper"></div>
+    <script>
+        let sum=0;
+        //万精油函数 都可调用
+        const createDOMFromString = (domString) => {
+            const oDiv = document.createElement('div'); // dom 节点
+            oDiv.innerHTML = domString; // 抽象 
+            return oDiv;
+        }
+        class LikeButton {
+            constructor() {
+                //状态  喜欢或者不喜欢
+                this.state = {
+                    isLiked: false
+                }
+            }
+            //渲染
+            render() {
+                this.el = createDOMFromString(`
+            <button id='like-btn'>
+                <span>${sum}</span>
+                <span class='like-text'>${this.state.isLiked ? '取消' : '点赞'}</span>
+            </button>
+                `);
+                
+                this.el.addEventListener('click', this.changeLikeText.bind(this) , false);
+                console.log(this.el)
+                return this.el 
+            }
+            //点击事件
+            changeLikeText() {
+                this.setState({
+                    isLiked:!this.state.isLiked
+                })
+            }
+            setState(state){
+                //insertBefore
+
+                // console.log(state);
+                const oldEl=this.el
+                const parent=this.el.parentNode;
+                console.log(this.el,parent)
+                this.state=state;
+                this.el=this.render()//再渲染一下  返回现任
+                parent.insertBefore(this.el,oldEl);
+                parent.removeChild(oldEl);  //react思想
+
+            }
+        }
+        const wrapper = document.querySelector('.wrapper');
+        const likeButton = new LikeButton();
+        wrapper.appendChild(likeButton.render());
+        //点赞功能组件
+    </script>
+</body>
+
+</html>
