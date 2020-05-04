@@ -58,3 +58,4 @@ const server = http.createServer(function(req, res) {
 server.listen(1010, function() {
   console.log('server is running 1010');
 })
+//启动服务器
