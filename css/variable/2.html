@@ -6,7 +6,9 @@
   <title>Document</title>
   <link rel="stylesheet" href="./box.css">
   <style>
-  * {
+
+  @media only screen  and (min-width: 320px) and (max-width: 768px) {
+    * {
     margin: 0;
     padding: 0;
   }
@@ -24,11 +26,33 @@
     background-color: var(--bg-color);
     padding: calc(var(--base-size) * 1px);
   }
+  
+}
+@media only screen and (min-width: 500px) {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  :root {
+    --bg-color: red;
+    --base-size: 8;
+  }
+  .box {
+    /* 占据90% -10px 宽 */
+    /* width: calc(90% - 10px); */
+    /* height: 100px; */
+    /* background-color: var(--bg-color); */
+    width: calc(var(--base-size) * 10px);
+    height: calc(var(--base-size) * 5px);
+    background-color: var(--bg-color);
+    padding: calc(var(--base-size) * 1px);
+  }
+}
   /* 当是手机浏览时， 请把box 宽， 高，  padding 大小
   等比例缩放80%, 在变量上做文章 */
   </style>
 </head>
 <body>
-  <div class="box"></div>
+  <div class="box">asda</div>
 </body>
 </html>

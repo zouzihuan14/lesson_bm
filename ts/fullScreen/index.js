@@ -13,7 +13,9 @@ var Color;
     Color[Color["Blue"] = 2] = "Blue";
 })(Color || (Color = {}));
 var color = Color.Red;
+console.log(color)
 var colorName = Color[0]; // 'Red'
+console.log(colorName)
 // any
 var a; // 不清楚类型： 用户输入
 // void  空
