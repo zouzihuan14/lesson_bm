@@ -10,7 +10,10 @@ const main=ctx =>{
     // console.log(ctx.request,'-------------');
     // ctx.response.body="Hello World"
     ctx.response.type='html'  //相应头
-    const html=fs.readFileSync('./template.html','utf-8');
+    // const html=fs.readFileSync('./template.html','utf-8');
+    fs.readFile('./template.html','utf-8',function(err,data){
+    
+    })
     ctx.response.body=html
 }
 // app.use(func);
