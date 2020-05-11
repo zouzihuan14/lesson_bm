@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "request": "^2.88.2"
+  },
+  "name": "node-stream",
+  "description": "linux \r 我们以后的代码上线了，都是在一个Linux 的服务器上面运行的\r cat ： 读文件\r grep： 文本查找\r 管道  |\r ## node\r 1. 文件\r 2. 请求 响应",
+  "version": "1.0.0",
+  "main": "copy.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
