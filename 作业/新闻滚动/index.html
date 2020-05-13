@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta names="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap{
+            width: 800px;
+            height: 800px;
+        }
+        .next{
+            background-color: cornflowerblue;
+        }
+        img{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div"></div>
+    <button class="next">下一条</button>
+    <button class="test">ceshi</button>
+</body>
+<script>
+    var i = 0 
+    const div= document.querySelector('.div')
+    const news = [{'pic':'./1.jpg','h1':'第一个标题','content':'第一篇文章'},
+                  {'pic':'./2.jpg','h1':'第二个标题','content':'第二篇文章'},
+                  {'pic':'./3.jpg','h1':'第三个标题','content':'第三篇文章'}]
+    const init=function(){
+        div.innerHTML=`
+    <div>知乎</div>
+    <div class="wrap">
+        <div class="pic"><img src="${news[i].pic}" alt=""></div>
+        <h1>${news[i].h1}</h1>
+        <div class="content">${news[i].content}</div>
+        
+    </div>`
+    }
+    init()
+    const next= document.querySelector('.next')
+    const test= document.querySelector('.test')
+    test.addEventListener('click',function(){ 
+        i--
+        if(i<0){
+            i=0
+        }
+        init()
+        console.log(i)
+       })    
+    next.addEventListener('click',function(){ 
+        i++
+        if(i>2){
+            i=2
+        }
+        init()
+        console.log(i)
+       }) 
+</script>
+</html>
