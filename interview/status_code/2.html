@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        <button type="button" onclick="clickCounter()">点我</button>
+        <div id='result'></div>
+    </p>
+    <script>
+        // localStorage sessionStrorage
+        // 三者的区别   
+        // 刻意练习  
+        // let count =0;
+        // let result = document.getElementById('result');
+        // function clickCounter(){
+        //     count++;
+        //     result.innerHTML=count  //21 行可以优化一下吗？？
+        // }
+        //Storage将点击 保存到本地 Storage 刻意练习
+        function clickCounter()
+        {   
+            const result = document.getElementById('result');
+
+            if(typeof Storage !=='undefined'){   
+                //作用   浏览器支持本地Storage  浏览器嗅探  (红宝书)
+                if(sessionStorage.clickCounter){ //设置了吗
+                    sessionStorage.clickCounter=Number(sessionStorage.clickCounter)+1;
+                    // result.innerHTML=`你在按钮上已经点击了${localStorage.clickCounter}次`
+
+                }
+                else{
+                    sessionStorage.clickCounter =1
+                }
+                result.innerHTML=`你在按钮上已经点击了${sessionStorage.clickCounter}次`
+            }
+            else{
+                result.innerHTML="sorry, 浏览器不支持";
+            }
+        }
+    </script>
+</body>
+</html>
