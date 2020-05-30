@@ -21,11 +21,11 @@ class Xmlhttprequest {
   parse(string) {
     // 解析
     const lines = string.split('\r\n');
-    console.log(lines);
+    // console.log(lines);
     this.resStatusLine = lines[0];
     this.statusCode = this.resStatusLine.split(' ')[1];
     // [)
-    this.resHeaders = lines.slice(1, lines.length - 1);
+    this.resHeaders = lines.slice(1, lines.length - 2);
     this.response = lines[lines.length - 1];
   }
   send(body) {
