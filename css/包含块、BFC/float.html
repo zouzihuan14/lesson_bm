@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap{
+            border: 1px solid #000;
+            overflow: hidden;
+            /* 如果不清除浮动  float影响外面布局  有悖于隔离容器 */
+        }
+        .main{
+            width: 40px;
+            height: 200px;
+            background-color: red;
+            float: left;
+
+        }
+        .aside{
+            overflow: hidden;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="main">main</div>
+        <div class="aside">side <br>side <br>side <br>side <br>side <br>side <br>side <br>side <br>side <br>side <br>side <br>side <br>side <br>side <br>side <br>side <br></div>
+    </div>
+</body>
+</html>
