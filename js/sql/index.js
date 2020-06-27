@@ -62,7 +62,7 @@ const users = [
       groups[group].push(row);
       return groups; // 
     }, {}) // 初始值
-    // console.log(this._result);
+    console.log(this._result);
     return this;
   }
   
@@ -84,4 +84,4 @@ const users = [
     .groupBy('sex') // 链式调用
     .where(predicate)
     .getResult();
-  console.log(result);
+//   console.log(result);
