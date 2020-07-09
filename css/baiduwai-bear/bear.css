@@ -1,0 +1,65 @@
+/*背景容器*/
+*{
+    margin:0px;
+    padding:0px;
+}
+html{
+    height:100%;
+} 
+body{
+   height:100%;
+   background-color: #333333;
+}
+.bac {
+    width: 345px;
+    height: 500px;
+    top: 50%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* background-color: #333333; */
+ }
+/*头部*/
+.bac .head {
+    width: 346px;
+    height: 288px;
+    /* background-color: #e1b79b; */
+    border: 3px solid #a57662;
+    border-radius: 50% 50% 50% 50% / 70% 60% 40% 40%;
+    position: relative;
+    z-index: 88;
+  }
+/*左耳朵*/
+.earLeft {
+    height: 50px;
+    width: 70px;
+    /* background-color: #e1b79b; */
+    border-radius: 200px 200px 100px 100px;
+    border: 3px solid #a57662;
+    transform: rotate(-49deg);
+    position: absolute;
+    top: 10px;
+    left: 12px;
+}
+
+/*右耳朵*/
+.earRight {
+    height: 50px;
+    width: 70px;
+    /* background-color: #e1b79b; */
+    border-radius: 200px 200px 100px 100px;
+    border: 3px solid #a57662;
+    transform: rotate(40deg);
+    position: absolute;
+    top: 10px;
+    right: 0;
+}
+.test{
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    position: absolute;
+    left:50%;
+    transform:translate(-50%,0);
+    border-radius: 50px 50px 50px 50px;
+}

@@ -1,0 +1,18 @@
+<script>
+    // 找出所有属性    三种解法
+    // 1、
+    (Object.keys(document.body.style).filter((i) => {
+      return i.indexOf('webkit') == -1
+    }).length)
+     // 2、
+     let result = [];
+        let arr = Object.keys(document.body.style);
+        for (let i = 0; i < arr.length; i++){
+            if(arr[i].indexOf('webkit') == -1){
+                result.push(arr[i]);
+            }
+        }
+        console.log(result)
+    // 3、
+    console.log(Object.keys(document.body.style).filter((e)=> !e.match(/^webkit/)).length)
+</script>

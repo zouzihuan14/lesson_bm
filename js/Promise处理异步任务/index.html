@@ -1,0 +1,154 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        width: 100px;
+        height: 100px;
+        background-color: #666;
+        border-radius: 50%;
+        margin-top: 100px;
+    }
+
+    ul.stop li:nth-child(1) {
+        background-color: red;
+    }
+
+    ul.warn li:nth-child(2) {
+        background-color: yellow;
+    }
+
+    ul.pass li:nth-child(3) {
+        background-color: green;
+    }
+</style>
+
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        const ul = document.querySelector('ul')
+        // setTimeout(
+        //     function () {
+        //     ul.className = 'stop';
+        //     setTimeout(function () {
+        //         ul.className = 'warn';
+        //         setTimeout(function () {
+        //             ul.className = 'pass';
+        //             setTimeout(function () {
+        //                 ul.className = 'stop';
+        //             }, 2000);
+        //         }, 1000);
+        //     }, 1000);
+        // }
+        // , 1000);
+
+
+        // let p =new Promise(function(resolve,reject){
+        //     setTimeout(() => {
+        //         resolve();   //成功   fulfilled  失败  rejected  处理中 pending 
+
+        //     }, 1000);
+        // })
+
+        let p =function(time){
+            return new Promise(function(resolve,reject){
+                setTimeout(() => {
+                    resolve()
+                }, time);
+            })
+        }
+        setInterval(() => {
+            light()
+        }, 6000);
+        light()
+        function light(){
+        //成功了 fulfilled
+        p(1000).then(function(){
+            //第一个灯间隔一秒
+            ul.className='stop';
+            //涉及到promise then的用法  有返回值 
+            //1.反回了一个Promise  那么还可以在后面链式调用then  也会等待这个Promise
+            //看他结果成功还是失败
+            return p(2000);
+        })
+        .then(function(){
+            ul.className='warn'
+            return p(3000)
+        })
+        .then(function(){
+            ul.className='pass'
+        })
+        }
+        //失败了  rejected
+    </script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  /*在这里，我们直接用了最外层嵌套立即执行函数，
+    并且在函数开头写上async */
+  (async function() {
+    function buy(event) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          console.log(event)
+          resolve(event)
+        }, 2000)
+      })
+    }
+
+    function eat(event) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          console.log(event)
+          resolve(event)
+        }, 1000)
+      })
+    }
+
+    function wash(event) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          console.log(event)
+          resolve(event)
+        }, 3000)
+      })
+    }
+
+    /*使用await 之前一定要在它最外层的函数前面写上async
+    	否则会报错
+    */
+  //  async function run(){
+    let p1 = await buy('买菜啦')
+    let p2 = await eat('吃饭啦')
+    let p3 = await wash('洗碗啦')
+  })()
+</script>
+
+</html>

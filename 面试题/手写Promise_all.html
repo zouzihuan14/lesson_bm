@@ -1,0 +1,36 @@
+<script>
+
+    let promise1 = new Promise((resolve,reject) =>{
+        resolve(1)
+    },1000)
+    let promise2 =new Promise((resolve,reject) =>{
+        resolve(2)
+    },2000)
+    let promise3 =new Promise((resolve,reject) =>{
+        resolve(3)
+    },3000)
+    let promise4 = new Promise((resolve,reject) =>{
+        resolve(4)
+    },4000)
+    Promise.myAll = function(promiseArr){
+        return new Promise((resolve,reject)=>{
+            let total = 0;  //成功的个数
+            let res = [];
+            promiseArr.forEach((pro,i)=>{
+                pro.then((r)=>{
+                // res.push(r)   无法保证顺序
+                res[i] = r
+                total ++;
+                //promise并不是同步的  不能放在for外面
+                if( total === promiseArr.length){
+                resolve(res)
+                }
+            })
+            .catch(reject)
+            })
+        // total = promiseArr.length;
+
+        })
+    }
+    Promise.myAll([promise1,promise2,promise3,promise4]).then(console.log)
+</script>

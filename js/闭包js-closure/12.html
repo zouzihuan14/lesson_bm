@@ -1,0 +1,14 @@
+
+<script>
+var name = 'Bob';
+var person = {
+    name: 'Alice',
+    age: 29
+}
+
+function sayName() {
+    console.log(this.name);
+}
+
+sayName.apply(person);    // Alice
+</script>

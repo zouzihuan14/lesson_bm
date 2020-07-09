@@ -62,7 +62,7 @@ const users = [
       groups[group].push(row);
       return groups; // 
     }, {}) // 初始值
-    console.log(this._result);
+    // console.log(this._result);
     return this;
   }
   

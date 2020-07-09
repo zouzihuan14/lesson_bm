@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #fff;
+            perspective: 800px;
+        }
+        #root{
+            transform-style: preserve-3d;
+        }
+    </style>
+</head>
+<body>
+    {/* <div id="root">
+        <span class="demo">
+          This is a span.
+        </span>
+        <p>DOM</p>
+      </div> */}
+      
+      
+      // DOM 树    AST   Tree Abstract    
+      // Abstract 业务 逻辑
+      // 算法 递归 
+      
+      <script>let dom = {
+        tag: 'div',
+        attrs: {
+          id: 'root',
+          className: 'wrap'
+        },
+        children: [
+          {
+            tag: 'span',
+            attrs: {
+              className: 'demo'
+            },
+            children: [
+              // 公平， 
+              // createTextNode()
+              // createElement()
+              {
+                tag: undefined,
+                text: 'This is a span.' 
+              }
+            ]
+          },
+          {
+            tag: 'p',
+            children: [
+              {
+                tag: undefined,
+                text: 'DOM' 
+              }
+            ]
+          }
+        ]
+      }</script>
+      
+</body>
+</html>

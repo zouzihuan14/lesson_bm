@@ -9,3 +9,12 @@
 请求头 
 
 响应头
+
+
+## JSONP
+ 不同 xhr fetch 不受跨域限制
+ img 
+ src
+ link
+ script
+ 

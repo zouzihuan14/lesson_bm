@@ -8,7 +8,7 @@ const fs = require('fs')
 // });
 
 https.get('https://ns-strategy.cdn.bcebos.com/ns-strategy/upload/fc_big_pic/part-00018-2113.jpg',function(res){
-    const writeStream=fs.createWriteStream('./abc.jpg')
+    const writeStream=fs.createWriteStream('./ac22.jpg')
     res.pipe(writeStream);
 })
 

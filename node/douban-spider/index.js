@@ -12,7 +12,7 @@ https.get('https://movie.douban.com/top250', function(res) {
     html = html + chunk;
   })
   res.on('end', function() {
-    console.log(html);
+    // console.log(html);
     const $ = cheerio.load(html);
     // 25
     // document.querySelector

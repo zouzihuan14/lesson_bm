@@ -43,7 +43,7 @@ function sum(a, b) {
   if (a === 0) return b 
   if (b === 0) return a
   let newA = a ^ b // 15 10
-  let newB = (a & b) << 1 2
+  let newB = (a & b) << 1 
   return sum(newA, newB)
 }
 console.log(sum(9 ,3))

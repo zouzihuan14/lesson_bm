@@ -1,0 +1,35 @@
+<script>
+    var name1= 2
+    function test(){
+        var name = 0
+        function test1(){
+            // var name2='ligang'
+            // debugger
+            return name ++
+            //访问了 另外一个函数作用域里面的变量 才会形成闭包
+            console.log(name);
+        }
+        return test1;
+    }
+    function test3(){
+        var a=0;
+        return a++
+    }
+    function test4(){
+        return name1;
+    }
+    console.log(test4())  // 2
+    console.log(test4())  // 2
+    console.log(test4())  // 2
+
+    console.log(test3())  // 0
+    console.log(test3())  // 0
+    console.log(test3())  // 0
+
+    var fn=test()
+    //延长name作用域
+    console.log(fn())     // 0
+    console.log(fn())     // 1
+    console.log(fn())     // 2
+
+</script>

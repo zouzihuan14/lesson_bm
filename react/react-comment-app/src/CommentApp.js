@@ -22,7 +22,7 @@ class CommentApp extends Component {
       <div className="wrapper">
         {/* onSubmit 事件函数？   */}
         {/* <a href="" onClick></a>   叫什么？   state  props 
-          react 组件  render  页面输出，   state 内部数据   props 外部数据
+          react 组件  render  页面输出，   state 内部数据   onSubmit 是props 外部数据
         */}
         <CommentInput  onSubmit={this.handleSubmitComment.bind(this)}/>
         {/*

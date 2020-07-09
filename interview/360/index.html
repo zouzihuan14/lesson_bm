@@ -36,7 +36,7 @@
     height: var(--size);
     /* background-color: green; */
     background: radial-gradient(circle closest-side, #4405f7, transparent);
-    /* transform: translate(-50%,-50%); */
+    transform: translate(-50%,-50%);
     transition: width 1s ease, height 1s ease;
   }
   .button:hover::before {
@@ -54,6 +54,7 @@
       // before 中心点在哪？
       // before 在哪里  定位决定， 鼠标的坐标
       // console.log(e.pageX, e.pageY);
+      
       const x = e.pageX - e.target.offsetLeft;
       const y = e.pageY - e.target.offsetTop;
       // console.log(x, y);
