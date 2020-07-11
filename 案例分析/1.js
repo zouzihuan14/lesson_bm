@@ -1,4 +1,4 @@
-class Square extends React.Component {
+ class Square extends React.Component {
     // TODO: remove the constructor
     constructor(props) {
       super(props);
