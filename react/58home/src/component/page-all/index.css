@@ -1,0 +1,48 @@
+body{
+    padding: 0px;
+    margin: 0px;
+}
+
+.mainDiv{
+    display: flex;
+    width: 100%;
+}
+.leftNav{
+    width: 16%;
+    background-color:rgb(241,242,246);
+    color:#333;
+    height: 100vh;
+    padding: 20px;
+}
+.rightMain{
+    position: relative;
+    width: 84%;
+    height:100vh;
+    background-color: #fff;
+
+
+}
+.link{
+    position: relative;
+    height: 1.2rem;
+    /* font-size: .35rem; */
+    font-size: .4rem;
+
+
+}
+ .link:active{
+     background-color: rgb(39, 32, 32);
+ }
+ .nav{
+     height: 1rem;
+     width: 10rem;
+     background-color: #fff;
+ }
+ .search{
+     margin-top: .2rem;
+     margin-left: .3rem;
+     height: 0.8rem;
+     width: 8.4rem;
+     background-color: rgb(241,242,246);
+     border-radius: 1rem;
+ }
