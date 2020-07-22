@@ -1,0 +1,30 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.linkage{
+  display: flex;
+}
+.nav{
+  width:50px;
+}
+dd{
+  height:60px
+}
+dt{
+  height: 36px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: #fff;
+}
+.tab-detail{
+  flex: 1;
+  height: 100vh;
+  overflow-y: scroll;
+  /* flex-grow flex-shrink flex-basis */
+}
+.active{
+  color: red;
+}
