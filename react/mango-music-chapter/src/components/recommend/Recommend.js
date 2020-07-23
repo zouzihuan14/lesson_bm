@@ -6,13 +6,11 @@ import Loading from '../../common/loading/Loading';
 import Scroll from '@/common/scroll/Scroll';
 import * as AlbumModel from '@/model/album';  // 一次性把album.js 所有的模块都引入
 // 应用中很多图片
-// import Lazyload from 'react-lazyload'; // 图片延迟加载
 // 1. 路由   
 // 2. redux
 // 3. 切页面+ js 
 // 4. 生命周期 + api 
 // 5. 公共组件
-
 // 所有的数据请求都放到api目录下
 import { getNewAlbum }  from '../../api/recommend';
 import LazyLoad, { forceCheck } from 'react-lazyload';
@@ -57,7 +55,7 @@ class Recommend extends React.Component {
     new Swiper(".slider-container", {
       loop: true,
       autoplay: {
-        delay: 1000,
+        delay: 2000,
       },
       pagination: {
         el: '.swiper-pagination',
@@ -151,7 +149,7 @@ class Recommend extends React.Component {
             </div>
           </div>
         </Scroll>
-        <Loading show={this.state.loading} title="正在加载..."/>
+        <Loading show={this.state.loading} title="正在加载最新专辑..."/>
       </div>
     )
   }

@@ -13,6 +13,7 @@ function Approuter(){
         {path:'/video',title:'视频教程',exact:false,component:Video},
         {path:'/workplace',title:'职场技能',exact:false,component:Workplace},
     ]
+    // let Config = []
     return (
         <Router>
             <div className = 'mainDiv'>
@@ -20,12 +21,23 @@ function Approuter(){
                     <h3>一级导航</h3>
                     <ul>
                        {
+
                            routerConfig.map((item,index)=>{
+                               if(item.title === '职场技能'){
                                return(
                                <li key={index}>  
-                               <Link to ={item.path}>{item.title}</Link>
+                               <Link to ={item.path}>
+                                <div style={{'color':'red'}}>{item.title}</div>
+                                   </Link>
                                </li>
-                               )
+                               )}
+                               if(item.title === '视频教程'){
+                                return(
+                                <li key={index}>  
+                                <Link to ={item.path}>{item.title}</Link>
+                                </li>
+                                )}
+                               else return ''
                            })
                        }
                     </ul>

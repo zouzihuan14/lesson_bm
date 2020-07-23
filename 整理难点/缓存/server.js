@@ -11,6 +11,9 @@ app.get('/big.js',(req,res)=>{
     res.setHeader('Cache-Control','max-age=20')
     // 协商缓存 请求会到达服务器
     // 20 之后 请求(会携带一个 if-none-match)
+    // ?? etag 生成es5 
+    //if-modified-since 文件修改了文件的最后修改会发生变化
+    // 服务器  对比前后两次文件有没有变化
     const Etag = md5(jsContent)
     const oldEtag = req.headers['if-none-match']
     if(Etag === oldEtag)

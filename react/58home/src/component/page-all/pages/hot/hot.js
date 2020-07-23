@@ -1,0 +1,36 @@
+import React, { useState, useEffect } from 'react';
+import './hot.css'
+import Item from './item'
+export default function Hot() {
+    const [AllList, setState] = useState({});
+    useEffect(() => {
+        fetch('http://localhost:8090/all/all')
+            .then(data => data.json())
+            .then(res => setState(res))
+
+    }, []);
+    const hot = AllList.hot;
+    return (
+
+        <div>
+            <div className='img'>
+                <img style={{ width: '7rem' }} src='https://images.daojia.com/dop/custom/9ae5199ea57920870ee5fd1a215ab9d6.png' />
+            </div>
+            <div className='wenzi'>---- 热门 ----</div>
+            <div className='hot'>
+                <div className='all_item'>
+                    {
+                        hot?.map((item, index) => {
+                            return (
+                                <Item src={item.src} content={item.name} key={index} />
+                            )
+                        })
+                    }
+
+                    <Item />
+                </div>
+            </div>
+        </div>
+    );
+}
+

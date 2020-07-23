@@ -1,0 +1,33 @@
+数组 of 会直接读取出数值
+
+var mycars = ['a','r','v'] 
+for (var x of mycars)
+{
+   console.log(x);
+}
+a
+r
+v
+
+var mycars = ['a','r','v'] 
+for (var x in mycars)
+{
+   console.log(x);
+}
+0
+1
+2
+
+对象  无序 只能用in
+var mycars = {'sdada':"Saab", 2:"Volvo", 3:"BMW"};
+ 
+mycars.color = "white"
+ 
+for (var x in mycars)
+{
+   console.log(x);
+}
+2
+3
+adada
+color

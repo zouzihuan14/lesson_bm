@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 import './App.css';
 import Home from './component/page-home'
-import All from './component/page-all'
+import All from './component/page-all/All'
 import Info from './component/page-info'
 import My from './component/page-my'
 

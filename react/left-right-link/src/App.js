@@ -1,4 +1,5 @@
-import React ,{useState, useEffect , useRef}from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import logo from './logo.svg';
 import './App.css';
 const data = {
   tab1: [
@@ -24,7 +25,11 @@ const data = {
     { c: "3-4" },
     { c: "3-5" },
     { c: "3-6" },
-    { c: "3-7" }
+    { c: "" },
+    { c: "" },
+    { c: "" },
+    { c: "" },
+    { c: "3-7" },
   ],
   tab4: [
     { c: "4-1" },
@@ -38,80 +43,69 @@ const data = {
     { c: "" },
     { c: "" },
     { c: "" },
-    { c: "" },
-    { c: "" },
-
   ]
 };
-let base = 0 ,ranges =[]
+let base = 0, ranges = [];
 function App() {
-  const navs= Object.keys(data)
-  const [activeIndex,setActiveIndex]=useState(0)
-  const handleTabClick = (e)=>{
-  const ltab = e.target.getAttribute('data-ltab');
-  const activeIndex = e.target.getAttribute('data-index')
-  setActiveIndex(parseInt(activeIndex))
-  const rtab = document.querySelector(`[data-rtab="${ltab}"]`)
-  rtab.scrollIntoView({
-    behavior:'smooth'
-  })
-    //需要滚动哪个元素，scrollIntoView
+  const [activeIndex, setActiveIndex] = useState(0); 
+  const handleTabClick = (e) => {
+    const ltab = e.target.getAttribute('data-ltab');
+    const activeIndex = e.target.getAttribute('data-index');
+    setActiveIndex(parseInt(activeIndex));
+    // 需要滚动的哪个元素.scrollIntoView
+    const rtab = document.querySelector(`[data-rtab="${ltab}"]`);
+    rtab.scrollIntoView({
+      behavior: 'smooth'    // 平滑
+    })
   }
-  const ref = useRef()
-    useEffect(()=>{
-      const tabDetail = ref.current ;
-      const tabs = tabDetail.querySelectorAll('[data-rtab]')
-      for(let tab of tabs){
-        let h = tab.getBoundingClientRect().height;
-        let newH = base + h 
-        ranges.push([base,newH])
-        base=newH;
-      }
-      // console.log(ranges)
-      function onScroll(e){
-        const scrollTop = tabDetail.scrollTop
-        const index = ranges.findIndex(range =>scrollTop>=range[0]&&scrollTop<range[1]
-        &&scrollTop<range[1])
-        setActiveIndex(index);
-      }
-      tabDetail.addEventListener('touchstart',()=>{
-        tabDetail.addEventListener('touchmove',onScroll)
-      })
-      tabDetail.addEventListener('touchend',()=>{
-        tabDetail.removeEventListener('touchmove',onScroll)
-      })
-     },[])
-        //onMouseDown 再绑定 scroll
-        //onMouseUp   移除 scroll
-
+  const navs = Object.keys(data);
+  const ref = useRef();
+  useEffect(() => {
+    const tabDetail = ref.current;
+    const tabs = tabDetail.querySelectorAll('[data-rtab]');
+    for (let tab of tabs) {
+      let h = tab.getBoundingClientRect().height;
+      let newH = base + h;
+      ranges.push([base, newH]);
+      base = newH;
+    }
+    // console.log(ranges);
+    function onScroll(e) {
+      const scrollTop = tabDetail.scrollTop;
+      // < ? <
+      const index = ranges.findIndex(range => scrollTop >= range[0] &&
+        scrollTop < range[1]);
+      setActiveIndex(index);
+    }
+    tabDetail.addEventListener('scroll', onScroll);
+  }, [])
   return (
     <div className="linkage">
       <nav>
-      { navs.map((nav,i)=>{
-          return (
-          <div key={i}
-          data-ltab={nav}
-          data-index={i}
-          onClick={handleTabClick}
-          className={activeIndex===i?'active':''}>{nav}</div>
-          )
-        })}
+        {
+          navs.map((nav, i) => {
+            return (<div key={i}
+            data-index={i}
+            data-ltab={nav}
+            onClick={handleTabClick}
+            className={activeIndex === i ? 'active' : ''}
+            >{nav}</div>)
+          })
+        }
       </nav>
       <div className="tab-detail" ref={ref}>
         {
-          navs.map((nav,i)=>{
-            return (<dl key={i} data-rtab={nav}>
-              <dt >{nav}</dt>
+          navs.map((nav, i) => {
+           return <dl key={i} data-rtab={nav}>
+              <dt>{nav}</dt>
               {
-                data[nav].map((con,j)=>{
-                  return(
-                    <dd key={j}>
-                      {con.c}
-                    </dd>
-                        )
+                data[nav].map((con, j) => {
+                  return <dd key={j}>
+                    {con.c}
+                  </dd>
                 })
               }
-              </dl>)
+            </dl>
           })
         }
       </div>
