@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './hot.css'
 import Item from './item'
+import {Link} from 'react-router-dom'
 export default function Hot() {
     const [AllList, setState] = useState({});
     useEffect(() => {
@@ -22,12 +23,13 @@ export default function Hot() {
                     {
                         hot?.map((item, index) => {
                             return (
+                                <Link to='/detail'>
                                 <Item src={item.src} content={item.name} key={index} />
+                                </Link>
                             )
                         })
                     }
 
-                    <Item />
                 </div>
             </div>
         </div>

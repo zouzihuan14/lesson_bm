@@ -2,7 +2,11 @@ import React ,{Component}from 'react';
 import Swiper from "swiper"
 import "swiper/css/swiper.css"
 import './detail.css'
-
+import Price from './price'
+import Title from './title'
+import {Biaoyu} from './biaoyu.js'
+import {Gou} from './gou.js'
+import {Youhui} from './youhui'
 export default class Details extends React.Component {
   constructor() {
     super()
@@ -45,6 +49,7 @@ export default class Details extends React.Component {
   }
   render(){
     return(
+      <div className='detail'>
       <div className='banner'>
       <div className="slider-container">
       <div className="swiper-wrapper">
@@ -53,7 +58,7 @@ export default class Details extends React.Component {
             return (
               <div className="swiper-slide" key={slider.id}>
                 <a href={slider.linkUrl} className="slider-nav">
-                  <img src={slider.picUrl} alt="" width="100%" height="100%"/>
+                  <img src={slider.picUrl} alt="" width="100%" height="10%"/>
                 </a>
               </div>
             );
@@ -62,6 +67,24 @@ export default class Details extends React.Component {
       </div>
       <div className="swiper-pagination"></div>
     </div>
+    </div>
+    <Price />
+    <Title />
+      <Biaoyu>高温除尘菌 让呼吸更清新 让感觉更合适</Biaoyu>
+      <Gou>
+        <ul>
+          <li className='iconfont'>&#xe84b;随时预约</li>
+          <li className='iconfont'>&#xe84b;专业清洗工具</li>
+          <li className='iconfont'>&#xe84b;阿姨专业培训</li>
+        </ul>
+      </Gou>
+      <Youhui>
+        <ul>
+          <li>优惠</li>
+          <li>6.5折无门槛优惠券</li>
+          <li><div>立即领取</div></li>
+        </ul>
+      </Youhui>
     </div>
     )
   }

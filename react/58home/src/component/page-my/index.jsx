@@ -5,7 +5,7 @@ import Wait from './wait/wait.js'
 import Collect from './collect/collect.js'
 import Data from './datas/datas'
 import Login_out from './login_out/login_out'
-
+import Footer from '../public/Footer'
 
 
 export default function My(){
@@ -17,6 +17,7 @@ export default function My(){
             <Collect />
             <Data />
             <Login_out />
+            <Footer />
         </div>
     )
 }

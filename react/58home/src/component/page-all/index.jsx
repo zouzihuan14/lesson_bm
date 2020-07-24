@@ -1,16 +1,17 @@
 import React from 'react';
-import {  Route , Link} from 'react-router-dom'
+import { Route , Link} from 'react-router-dom'
 import Hot from './pages/hot/hot'
 import add from './icons/add.png'
 import Clear from './pages/clear/hot'
 import Bmys from './pages/bmys/hot'
 
 import './index.css'
+import Footer from '../public/Footer';
 
 
 function All(){
     let routerConfig = [
-        {path:'/all',title:'热门',exact:true,component:Hot},
+        {path:'/all/',title:'热门',exact:true,component:Hot},
         {path:'/all/clear',title:'保洁清洗',exact:true,component:Clear},
         {path:'/all/bmys',title:'保姆月嫂',exact:true,component:Bmys},
         {path:'/all/bj',title:'搬家',exact:true,component:Hot},
@@ -23,7 +24,7 @@ function All(){
         {path:'/all/bmfw',title:'便民服务',exact:true,component:Clear},
     ]
     return (
-        <>
+          <div>
             <div className="nav">
                 <div className='search'>擦玻璃</div>
                 <div className='add'>
@@ -38,8 +39,8 @@ function All(){
                         routerConfig.map((item,index)=>{
                             return(
                             <div className='link'>
-                            <Link className='wenzi1' to ={item.path}>
-                             {item.title}
+                            <Link to ={item.path}>
+                             <div className='wenzi1' style={{'color':'black'}}>{item.title}</div>
                              </Link>
                              </div>
                             )
@@ -51,17 +52,16 @@ function All(){
                { 
                routerConfig.map((item,index)=>{
                 return(
-                <Link to='/detail'>
                 <Route 
                 key={index} path={item.path} exact={item.exact} 
-                component={item.component} 
+                component={item.component}
                 />
-                </Link>
                 )})       
                 }
                 </div>
             </div>
-</>
+            <Footer/>
+            </div>
     )
 }
 export default All
