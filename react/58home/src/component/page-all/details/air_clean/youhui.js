@@ -5,13 +5,14 @@ export const Youhui = styled.div`
   margin-top:.25rem;
     width:10rem;
     display:flex;
-    height:2rem ;
+    height:1.6rem ;
     align-items:center;
   background-color: #fff;
     ul{
         
         position:relative;
-        width:8rem;
+        width:10rem;
+        /* height: 1rem; */
         justify-content:space-around;
         display: flex;
         /* justify-content:space-around; */
@@ -19,9 +20,30 @@ export const Youhui = styled.div`
         /* left:.5rem; */
         color:#808080;
         }
-        li{
-        position:relative;
-          font-size:.4rem;
+        li:first-child{
+          position:relative;
+          font-size:.37rem;
+          color:red;
+          background-color:#f1f0f0;
+          border:#000  .01rem;
+          border-radius:.1rem;
         }
+        li:nth-child(2){
+          position:relative;
+          font-size:.41rem;
+          color:black;
+          left:-1rem;
+        
+        }
+        li:nth-child(3){
+          position:relative;
+          font-size:.41rem;
+          color:black;
+          border:#999999 solid .002rem;
+          border-radius:.1rem;
+
+        }
+
+
       
 `;

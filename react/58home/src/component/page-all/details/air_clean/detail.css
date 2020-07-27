@@ -4,8 +4,14 @@
     background-color: #fff;
 }
 .detail{
-    width: .625rem;
+    width: 10rem;
     height: 100vh;
+}
+.detail_back{
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    z-index: 2;
 }
 .swiper-container-initialized{
     overflow-x: hidden;

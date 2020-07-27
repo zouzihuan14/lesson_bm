@@ -1,0 +1,34 @@
+.all-city{
+    display: flex;
+    justify-content: space-between;
+}
+.right-nav{
+    position: fixed;
+    right: 5px;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.city-name{
+    display: flex;
+    flex-direction: column;
+}
+.city-title{
+    display: flex;
+}
+.city-title .left-nav{
+    width: 1rem;
+}
+.city-title p{
+    position: sticky;
+    top: 1.2rem;
+    height: 1rem;
+}
+.active {
+    color: #fff;
+    background-color: red;
+    border-radius: 50%;
+}

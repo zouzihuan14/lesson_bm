@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 export default function Hot() {
     const [AllList, setState] = useState({});
     useEffect(() => {
-        fetch('http://localhost:8090/all/all')
+        fetch('http://localhost:8888/all/all')
             .then(data => data.json())
             .then(res => setState(res))
 
