@@ -1,0 +1,71 @@
+<style>
+#el{
+    width: 30px;
+    height: 30px;
+    background-color: red;
+}    
+</style>
+<div id="el"></div>
+<button id="pause">pause</button>
+<!-- <script>
+    const el = document.getElementById('el')
+    let end =400 ,duration=3000,start = 0 ;
+    let startTime = Date.now();
+    
+    // //frame
+    // setInterval(()=>{
+    //     console.log(1)
+    // },16)
+
+
+        let move = true
+        pause.addEventListener('click',()=>{
+           if(move){move=false}
+           else{
+               move=true
+           }
+        })
+        function tick(){
+        let hasPassed = Date.now() - startTime;
+        let progress = hasPassed/duration;
+        let x =progress*(end - start)
+        el.style.transform = `translate3d(${x}px,0,0)`
+        requestAnimationFrame(tick)
+        if(progress>=1){
+        el.style.transform = `translate3d(${end}px,0,0)`
+            return ;
+        }
+    }
+     function pause(){
+
+     }
+     function resume(){
+         rafId
+     }
+    //在每一帧里面请求执行一个方法
+        move&&requestAnimationFrame(tick)
+</script> -->
+<script>
+    const el = document.getElementById('el')
+    const pause = document.getElementById('pause')
+    const {x,y} = el.getBoundingClientRect()
+    let nowX = x,nowY = y,move = true
+
+    function tick () {
+        console.log(nowX,nowY)
+        if (nowX>400||nowY>400) {
+            nowX = 0, nowY = 0
+        }
+        nowX ++ 
+        nowY ++ 
+        el.style.transform = `translate3d(${nowX}px,${nowY}px,0)`
+        move && requestAnimationFrame(tick)
+    }
+
+    let refId = requestAnimationFrame(tick)
+    pause.addEventListener('click',() => {
+        move = !move 
+        cancelAnimationFrame(refId) 
+        requestAnimationFrame(tick) 
+    })
+</script>

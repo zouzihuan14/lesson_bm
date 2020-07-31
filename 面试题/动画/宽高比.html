@@ -1,0 +1,31 @@
+<style>
+    /*
+    宽高比 16:9    
+    */
+    .retion{
+        width: 100%;
+        background-color:blue;
+        height: 0;
+        /*用padding-top把高度撑开 相对的是宽度来计算*/
+        position: relative;
+        padding-top: calc( 100% * 9/16);
+    }
+    .retion>div{
+        position: absolute;
+        left: 0;top: 0;
+    }
+</style>
+<div class="retion">
+    <div>sssss</div>
+</div>
+
+
+<script>
+    let obj = {
+        a :1 ,
+        [Symbol.toPrimitive]:()=>{
+            return 123
+        }
+    }
+    console.log(obj + 1)
+</script>
