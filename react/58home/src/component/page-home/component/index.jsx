@@ -6,7 +6,7 @@ import ToHome from './to-home/ToHome';
 import UpDoor from './updoor/UpDoor';
 import Need from './need/Need';
 import More from './more/More';
-import Footer from '../../public/Footer'
+import Footer from '../../pubilc/Footer';
 function HomePage () {
     return (
         <div className="home-wrapper">

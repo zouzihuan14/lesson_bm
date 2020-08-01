@@ -1,4 +1,4 @@
-import React ,{Component}from 'react';
+import React from 'react';
 import Swiper from "swiper"
 import "swiper/css/swiper.css"
 import './detail.css'
@@ -9,7 +9,8 @@ import {Gou} from './gou.js'
 import {Youhui} from './youhui'
 import {Xuanze} from './xuanze'
 import {Pic} from './pic'
-import Back from '../../../public/Back'
+import {Buy} from './buy'
+import Back from '../../../pubilc/Back';
 export default class Details extends React.Component {
   constructor() {
     super()
@@ -46,7 +47,10 @@ export default class Details extends React.Component {
       },
       pagination: {
         el: '.swiper-pagination',
-        type: 'bullets',
+        type: 'custom',
+        renderCustom: function (swiper, current, total) {
+          return current + ' / ' + total;
+        }
       }
     })
   }
@@ -93,15 +97,15 @@ export default class Details extends React.Component {
       <Xuanze>
         <div className='xuanze_title'>
           <div className='head_title' >地址</div>
-          <div className= 'detail_title1 iconfont' >请选择服务地址</div><div className= 'iconfont'> &#xe67b;</div>
+          <div className= 'detail_title1 iconfont' ><input type="text" placeholder='请选择服务地址'/></div><div className= 'iconfont'> &#xe67b;</div>
         </div>
         <div className='xuanze_title'>
           <div className='head_title' >规格</div>
-          <div className= 'detail_title1 iconfont'>请选择服务规格</div><div className= 'iconfont'> &#xe67b;</div>
+          <div className= 'detail_title1 iconfont'><input type="text" placeholder='请选择服务规格'/> </div><div className= 'iconfont'> &#xe67b;</div>
         </div>
         <div className='xuanze_title'>
           <div className='head_title' >时间</div>
-          <div className= 'detail_title1 iconfont'>请选择服务时间</div><div className= 'iconfont'> &#xe67b;</div>
+          <div className= 'detail_title1 iconfont'><input type="text" placeholder='请选择服务时间'/></div><div className= 'iconfont'> &#xe67b;</div>
         </div>
       </Xuanze>
       <Pic>
@@ -112,6 +116,13 @@ export default class Details extends React.Component {
         <img src="https://images.daojia.com/pic/commodity/online/8b4eb621d275d8cbc04c029658ec4de6.jpg?x-oss-process=image/auto-orient,0/format,webp" alt=""/>
         <img src="https://images.daojia.com/pic/commodity/online/165c2cb8a74e2a65208716a795a8c962.jpg?x-oss-process=image/auto-orient,0/format,webp" alt=""/>
       </Pic>
+      <Buy>
+        <div className='kefu_icon'>
+          <div className='kefu_icons iconfont'> &#xe61b; </div>
+          <div className='kefu_word'>客服</div>
+        </div>
+          <div className='buy_now'>立即购买</div>
+      </Buy>
     </div>
     )
   }

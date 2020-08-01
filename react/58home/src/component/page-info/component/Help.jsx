@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import './help.css'
-import Back from '../../public/Back';
+import Back from '../../pubilc/Back';
 function Help() {
     return (
         <div className="help-wrapper">

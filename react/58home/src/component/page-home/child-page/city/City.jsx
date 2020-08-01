@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import Back from '../../../public/Back';
+import Back from '../../../pubilc/Back';
 import './City.css'
 import HotCity from './city-component/HotCity'
 import AllCity from './city-component/AllCity';
+import UsefulCity from './city-component/UsefulCity';
 
 export default function City() {
     const [cities, setCities] = useState([])
     useEffect(() => {
-        fetch("http://localhost:8888/cities/cities")
+        fetch("http://localhost:8080/cities/cities")
             .then(data => data.json())
             .then(res => setCities(res))
     }, [])
     const hotCities = cities.hotCities
     const allCities = cities.cityList
-    console.log(allCities)
     return (
-        <div className="city-page">
-            <div className="body">
+        <div className="city-page" >
+            <div className="body" data-body={'#'}>
                 <div className="top-wrap">
                     <div className="city-top">
                         <Back />
@@ -26,6 +26,7 @@ export default function City() {
                 </div>
                 <HotCity hotCities={hotCities} />
                 <AllCity allCities={allCities} />
+                <UsefulCity />
             </div>
         </div>
     )

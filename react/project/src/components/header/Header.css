@@ -1,11 +1,11 @@
 .header {
     width: 20rem;
     height: 2rem;
-    display: flex; 
-     flex-direction: row;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     position: relative;
-    align-items: center; 
+    align-items: center;
 }
 
 .header-text {

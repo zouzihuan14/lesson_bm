@@ -7,20 +7,16 @@
     width: 10rem;
     height: 100vh;
 }
+.swiper-pagination.swiper-pagination-custom{
+    position: absolute;
+    top: 7rem;
+    right: 0;
+    padding-left: 4.5rem;
+}
 .detail_back{
     position: absolute;
-    top: 0rem;
-    left: 0rem;
-    z-index: 2;
-}
-.swiper-container-initialized{
-    overflow-x: hidden;
-}
-/* .swiper-pagination  {
-    background-color:#fff  !important ;
-} */
-.swiper-pagination.swiper-pagination-bullets{
-    /* background-color:#fff  ; */
-    position: relative;
-    top: -.4rem;
+    right: 0;
+    top: 0px;
+    left: 0px;
+    z-index: 99;
 }

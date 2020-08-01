@@ -21,17 +21,16 @@ export const Xuanze = styled.div`
     height:2rem ;
     left:.5rem;
     display:flex;
+    font-size:0.4rem;
+    font-weight:600;
     text-align:center;
     align-items:center;
-    font-size:.4rem;
     position: relative;
-    font-weight:600;
+
   }
   .xuanze_title .detail_title1{
     display:flex;
     left:.5rem;
-    color:#808080;
-    font-size:.4rem;
     text-align:center;
     align-items:center;
     width:8rem;

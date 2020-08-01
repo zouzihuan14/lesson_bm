@@ -1,25 +1,29 @@
 import React from 'react';
-import { HashRouter, Route , Redirect } from 'react-router-dom'
+import { BrowserRouter, Route, Link, Redirect ,Switch} from 'react-router-dom'
 import './App.css';
-import Home from './component/page-home/index'
-import All from './component/page-all/index'
+import Home from './component/page-home'
+import All from './component/page-all'
 import Info from './component/page-info'
 import My from './component/page-my'
+import Footer from './component/pubilc/Footer';
 import Detail from './component/page-all/details/air_clean/detail'
-
+import MyOrder from './component/page-my/order/myOrder/MyOrder';
 
 function App() {
   return (
     <div className="App">
-      <HashRouter>
-          <Route path='/home' component={Home} />
-          <Route path='/all' component={All} />
-          <Route path='/info' component={Info} />
-          <Route path='/my' component={My} />
+      <BrowserRouter>
+        <div className="page">
+          <Switch>
+          <Route exact path='/home' component={Home} key="home"/>
+          <Route path='/all' component={All} key="all" />
+          <Route path='/info' component={Info} key="info"/>
+          <Route path='/my' component={My} key="my"/>
           <Route path='/detail' component={Detail} />
-          {/* <Route path='*' component={Home} /> */}
-          < Redirect from = '/*' to = '/home' />
-      </HashRouter>
+          <Redirect to='/home'/>
+          </Switch>
+        </div>
+      </BrowserRouter>
     </div>
   );
 }

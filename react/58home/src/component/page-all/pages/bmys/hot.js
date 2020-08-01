@@ -4,7 +4,7 @@ import Item from './item'
 export default function Hot(){
         const [BabysitList, setState] = useState({});
         useEffect(() => {
-            fetch('http://localhost:8888/all/all')
+            fetch('http://localhost:8080/all/all')
                 .then(data => data.json())
                 .then(res => setState(res))
 

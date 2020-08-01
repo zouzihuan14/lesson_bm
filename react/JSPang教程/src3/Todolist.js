@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 
 const Todolist = (props)=>{
     let {inputValue,inputChange,clickButton,list} = props
-    return ( 
+    return (    
         <div>
             <div>
                 <input value = {inputValue} onChange={inputChange}/>

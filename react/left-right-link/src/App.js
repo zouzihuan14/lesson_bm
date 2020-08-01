@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import logo from './logo.svg';
 import './App.css';
 const data = {
-  tab1: [
+  "热门": [
     { c: "1-1" },
     { c: "1-2" },
     { c: "1-3" },
@@ -10,7 +10,7 @@ const data = {
     { c: "1-5" },
     { c: "1-6" }
   ],
-  tab2: [
+  "保洁清洗": [
     { c: "2-1" },
     { c: "2-2" },
     { c: "2-3" },
@@ -18,7 +18,7 @@ const data = {
     { c: "2-5" },
     { c: "2-6" }
   ],
-  tab3: [
+  "保姆月嫂": [
     { c: "3-1" },
     { c: "3-2" },
     { c: "3-3" },
@@ -31,7 +31,7 @@ const data = {
     { c: "" },
     { c: "3-7" },
   ],
-  tab4: [
+  "搬家": [
     { c: "4-1" },
     { c: "4-2" },
     { c: "4-3" },

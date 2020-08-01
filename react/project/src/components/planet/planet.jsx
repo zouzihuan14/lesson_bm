@@ -6,17 +6,16 @@ class Planet extends Component {
     constructor() {
         super();
         this.state = {
-            isDisabled: false
+            isDisabled: true
         }
     } 
     handleNextStep() {    
             this.setState({
-                isDisabled: true
+                isDisabled: false
             }) 
     }
     handleNextPage() { 
-        if (this.input.value!== '') {
-            this.handleNextPage.bind(this)()
+        if (this.input.value !== null) {
             let obj = {}; 
             let newObj;
             obj['titles'] = this.input.value;
@@ -41,7 +40,7 @@ class Planet extends Component {
                 <Link to="/">
                 <button className="next-step-button" 
                 disabled={isDisabled} 
-                // onClick={this.handleNextPage.bind(this)}
+                onClick={this.handleNextPage.bind(this)}
                 >下一步</button>
                 </Link>
             </div>
@@ -52,7 +51,7 @@ class Planet extends Component {
                 </div>
                 <input type="text" className="input-box" 
                 placeholder={"输入星球名称"}
-                // onClick={this.handleNextStep.bind(this)}  
+                onClick={this.handleNextStep.bind(this)}  
                 ref={(input) => this.input = input} />
             </div>
             </div>

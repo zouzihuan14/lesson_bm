@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { NavContainer, ListContainer, List, ListItem, } from './style';
 import { categoryTypes, alphaTypes } from '../../api/config';
 import Horizen from '../../baseUI/horizen-item/index';
-// import {  getHotSingerList, refreshMoreHotSingerList, changeListOffset } from './store/actionCreators'; 
+import {  getHotSingerList, refreshMoreHotSingerList, changeListOffset } from './store/actionCreators'; 
 import  LazyLoad, {forceCheck} from 'react-lazyload';
 import Scroll from "../../baseUI/scroll/index";
 import { renderRoutes } from 'react-router-config';

@@ -1,19 +1,33 @@
-import React from 'react';
+import React, { memo } from 'react';
 import './hotcity.css'
+import { Link } from 'react-router-dom';
+import { changeCity } from '../../../store/actionCreator'
+import { connect } from 'react-redux';
 
-export default function HotCity(props) {
+function HotCity(props) {
     const { hotCities } = props
+    const { chooseCity } = props
+    const clickCity = (name) => {
+        chooseCity(name)
+    }
     // console.log(hotCities)
     return (
-        <div className="hot-wrapper">
+        <div 
+        className="hot-wrapper">
             <p className="hot-title">热门城市</p>
-            <div className="hot-box">
+            <div 
+            className="hot-box">
                 {
                     hotCities?.map((item, index) => {
                         return (
-                            <div className="hot-city" key={item + index}>
+                            <Link 
+                            to='/Home'
+                            className="hot-city" 
+                            key={item + index}
+                            onClick={() => {clickCity(item.name)}}
+                            >
                                 {item.name}
-                            </div>
+                            </Link>
                         )
                     })
                 }
@@ -21,3 +35,11 @@ export default function HotCity(props) {
         </div>
     )
 }
+const mapDispatchToProps = (dispatch) => {
+    return {
+        chooseCity: (city) => {
+            dispatch(changeCity(city))
+        }
+    }
+}
+export default connect(null,mapDispatchToProps)(memo(HotCity))

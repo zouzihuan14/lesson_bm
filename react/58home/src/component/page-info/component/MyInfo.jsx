@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
-import Foot from '../../public/Footer'
 import './myinfo.css'
-import Footer from '../../public/Footer';
+import Footer from '../../pubilc/Footer';
 
 function MyInfo() {
     const [Info, setInfo] = useState([])
     useEffect(() => {
-        fetch("http://localhost:8888/info/info")
+        fetch("http://localhost:8080/info/info")
             .then(data => data.json())
             .then(res => setInfo(res))
     }, [])
@@ -38,9 +37,7 @@ function MyInfo() {
                     })
                 }
             </ul>
-            <Footer />
         </div>
     )
-
 }
 export default MyInfo

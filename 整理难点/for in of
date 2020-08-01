@@ -1,5 +1,5 @@
 数组 of 会直接读取出数值
-
+```  js
 var mycars = ['a','r','v'] 
 for (var x of mycars)
 {
@@ -8,7 +8,7 @@ for (var x of mycars)
 a
 r
 v
-
+```
 var mycars = ['a','r','v'] 
 for (var x in mycars)
 {
