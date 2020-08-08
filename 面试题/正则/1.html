@@ -1,0 +1,12 @@
+<!-- 题目
+实现 trim
+function trim(str) {
+ // todo
+}
+'    1   '   =>. '1' -->
+<script>
+        //  正则最好处理
+        const trim = (str) => {
+        return str.replace(/^(\s)+(.+)(\s)+$/, '$2')
+    }
+</script>
