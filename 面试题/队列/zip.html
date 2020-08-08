@@ -1,0 +1,22 @@
+<!-- 
+function zip() {
+    // todo
+}
+zip(['fred', 'barney'], [30, 40], [true, false]);
+  // => [['fred', 30, true], ['barney', 40, false]] -->
+
+  <script>
+    const newZip = (...args) => {
+        let res = []
+        for (let i=0;i<args[0].length;i++){
+            let arr = []
+            for(let j=0;j<args.length;j++){
+                arr.push(args[j][i])
+            }
+            res.push(arr)
+        }
+        return res 
+    }
+console.log(newZip(['fred', 'barney'], [30, 40], [true, false])) 
+
+  </script>
