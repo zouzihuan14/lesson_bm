@@ -1,0 +1,24 @@
+<script>
+    // 宏任务队列：[setTimeout]
+    // 微任务队列；[p.then1 => p.then2] 一直执行到队列空
+    setTimeout(()=>{
+        console.log(1)
+        Promise.resolve(6).then(console.log)
+    })
+    new Promise((resolve,reject)=>{
+        console.log(2) //生成的Promise是同步的，后面的then才是异步的
+        resolve(3)
+    })
+    .then(r=>{
+        console.log(r)
+        setTimeout(()=>{
+        console.log(5)
+    })
+    })
+    .then(r=>{
+        console.log(r)
+    })
+    console.log(4)
+</script>
+
+2 4 3 undefined 1 6 5 
