@@ -16,11 +16,11 @@ js引擎线程，负责js的解析和执行
 什么是 Event-loop:
 浏览器协调用户交互，渲染，网络等任务
 
-宏任务、任务
+宏任务、任务  macrotask
 setTimeout，整体的一段script
 由宿主环境引起的任务
 
-微任务
+微任务       microtask
 Promise.then MuatationObserver IntersectionObeserver  Process.nextTick
 由 js 本身引起的任务
 
@@ -33,3 +33,7 @@ Promise.then MuatationObserver IntersectionObeserver  Process.nextTick
    2. IntersectionObeserver 回调
    3. 重新绘制渲染
 4. 再次重复第一步
+
+
+以60fps 每帧花费16.666ms 
+我们的渲染是 一个宏任务->清空微任务->渲染->一个宏任务->清空微任务->渲染->一个宏任务->清空微任务->渲染->
