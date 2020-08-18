@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {Mycomponent} from './useeffect2'
+import {MyComponent} from './ref_dom'
 function App(){
     return (
         <div className='App'>
-            <Mycomponent />
+            <MyComponent />
         </div>
     )
 }
