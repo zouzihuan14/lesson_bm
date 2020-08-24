@@ -1,0 +1,50 @@
+<script>
+  // [1,2,3].forEach((item, i) => {})
+  const PENDING = Symbol('PENGDING');
+  const FULFILLED = Symbol('FULFILLED');
+  const REJECTED = Symbol('REJECTED');
+  function MyPromise(fn) {
+    this.value = undefined;
+    this.onFulfilled = [];
+    this.status = PENDING;
+    let self = this;
+    function resolve(value) {
+      self.value = value;
+      self.status = FULFILLED;
+      console.log(value);
+      self.onFulfilled.forEach(fn => {
+        fn(value);
+      });
+    }
+    function reject() {}
+    fn(resolve, reject);
+  }
+  MyPromise.prototype.then = function(onFulfilled, onRejected) {
+    if (this.status === FULFILLED) onFulfilled(this.value)
+    else if (this.status === PENDING) {
+      return new MyPromise((resolve,reject)=>{
+        // 1.执行then的回调 需要知道返回值 
+        this.onFulfilled.push(()=>{
+          onFulfilled()
+          // 2.当前这个promise需要resolve 下一个 then才会调用
+          if(x instanceof MyPromise)
+          x.then
+          resolve()
+        })
+      })
+      this.onFulfilled.push(onFulfilled);
+    } else {}
+    return this;
+  }
+  new MyPromise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(1)
+    }, 2000);
+  })
+  .then((res) => {
+    console.log(res);
+  }, () => {})
+  .then((res) => {
+    console.log(res);
+  })
+</script>
