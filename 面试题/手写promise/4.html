@@ -1,0 +1,20 @@
+<script>
+    new Promise((resolve,reject)=>{
+        setTimeout(() => {
+            resolve(1)
+        }, 2000);
+    })
+    .then((r)=>{
+        console.log(r)
+        // 7 
+        // promise 
+        //具有 then 属性的对象
+        return {
+            then:(resolve,reject)=>{
+                resolve(123)
+            }
+        }
+    }).then(r=>{
+        console.log(r)
+    })
+</script>
