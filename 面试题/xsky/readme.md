@@ -18,7 +18,11 @@
   自适应
   rem 一切可依   等比例关系 px2rem
   蓝湖 用法   手机宽度750px
-  vw,vh
+  vw,vh  一切都是100vw
   vm 方案如何做适配？
   百分比
   calc
+
+  适配  我还用过vue+react+vw 实现适配
+
+ posscss  全新的CSS库   品台 插件系统  平台
