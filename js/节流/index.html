@@ -13,7 +13,7 @@
     </style>
 </head>
 <body>
-    <script src="./1.js"></script>
+    <!-- <script src="./1.js"></script> -->
     <script>
         const body = document.body
         function getUrerInfo(){
@@ -33,7 +33,7 @@
                 }
             }
         }
-        body.onmousemove = throttle(getUrerInfo,2000)
+        body.onmousemove = throttled(getUrerInfo,2000)
         //定时器实现
         // 头没有 尾部事件有
         // function throttled(func , wait) {
