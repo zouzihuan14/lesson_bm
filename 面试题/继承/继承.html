@@ -1,0 +1,39 @@
+<script>
+    function Foo() {
+        this.color = 'red'
+    }
+    Foo.prototype.say = function () {
+        console.log('say')
+    }
+    // f.__proto__ === Foo.prototype
+    let f = new Foo()
+    f.say()  //f为什么可以拿到say
+
+    function Bar() {
+        Foo.apply(this);
+    }
+    Bar.prototype.__proto__ = Foo.prototype
+    b = new Bar()
+    console.log(b)
+    // 构造函数继承
+    function Super(name) {
+        this.name = name
+    }
+    Super.prototype.getSuper = function () {
+        return this.name;
+    }
+
+    function Sub(name) {
+        Super.call(this, name);
+    }
+
+    var sub1 = new Sub("Tom");
+    // console.log(sub1.getSuper()) //Uncaught TypeError
+    console.log(sub1.name)  //Tom
+
+    var sub2 = new Sub();
+    console.log(sub2.name)  //undefined
+
+    var sup = new Super()
+    console.log(sup.getSuper())  //undefined
+</script>
