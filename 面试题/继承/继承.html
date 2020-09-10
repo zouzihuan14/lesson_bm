@@ -5,35 +5,48 @@
     Foo.prototype.say = function () {
         console.log('say')
     }
-    // f.__proto__ === Foo.prototype
     let f = new Foo()
     f.say()  //f为什么可以拿到say
+    // new的行为 ==> f.__proto__ === Foo.prototype
 
     function Bar() {
-        Foo.apply(this);
+        //es6  extends === Foo.apply(this)  + 方法
+        Foo.apply(this)   //es 5  把Foo 上的属性继承过来
     }
-    Bar.prototype.__proto__ = Foo.prototype
-    b = new Bar()
+    // Bar.prototype.__proto__ = Foo.prototype  暴力
+    // Object.setPrototypeOf(Bar.prototype,Foo.prototype) //上面一行代码一个作用
+    //2
+    Bar.prototype = Object.create(Foo.prototype)   //{}.__proto__ = Foo.prototype  return {}
+
+    let b = new Bar()
     console.log(b)
-    // 构造函数继承
-    function Super(name) {
-        this.name = name
-    }
-    Super.prototype.getSuper = function () {
-        return this.name;
-    }
+    //b 没有任何属性 找原型对象Bar.prototype=>Foo.prototype
+    
 
-    function Sub(name) {
-        Super.call(this, name);
-    }
+    //把属性和方法分开继承  属性存在于构造函数
 
-    var sub1 = new Sub("Tom");
-    // console.log(sub1.getSuper()) //Uncaught TypeError
-    console.log(sub1.name)  //Tom
 
-    var sub2 = new Sub();
-    console.log(sub2.name)  //undefined
+    // b = new Bar()
+    // console.log(b)
+    // // 构造函数继承
+    // function Super(name) {
+    //     this.name = name
+    // }
+    // Super.prototype.getSuper = function () {
+    //     return this.name;
+    // }
 
-    var sup = new Super()
-    console.log(sup.getSuper())  //undefined
+    // function Sub(name) {
+    //     Super.call(this, name);
+    // }
+
+    // var sub1 = new Sub("Tom");
+    // // console.log(sub1.getSuper()) //Uncaught TypeError
+    // console.log(sub1.name)  //Tom
+
+    // var sub2 = new Sub();
+    // console.log(sub2.name)  //undefined
+
+    // var sup = new Super()
+    // console.log(sup.getSuper())  //undefined
 </script>
